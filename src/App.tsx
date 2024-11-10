@@ -43,8 +43,10 @@ function App() {
       <div className="flex justify-center">
         <header className="font-mono text-3xl my-5">Todo App</header>
       </div>
-      <TodoList todoList={todoList} handleChange={handleChange} />
-      <AddTodo handleAddTodo={handleAddTodo} />
+      <div className="mx-9 my-3">
+        <TodoList todoList={todoList} handleChange={handleChange} />
+        <AddTodo handleAddTodo={handleAddTodo} />
+      </div>
     </>
   );
 }
