@@ -12,7 +12,7 @@ const TodoList = ({ todoList, handleChange }: TodoListProps) => {
       <div className="mb-6">
         {todoList.map((todo) => {
           return (
-            <div className="flex items-center mb-1">
+            <div key={todo.id} className="flex items-center mb-1">
               <input
                 type="checkbox"
                 checked={todo.completed}
