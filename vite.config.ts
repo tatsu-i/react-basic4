@@ -1,8 +1,28 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
-  base: "/react-basic4/",
-  plugins: [react()],
+  plugins: [
+    react({
+      jsxRuntime: "automatic",
+      babel: {
+        plugins: [
+          ["@babel/plugin-transform-react-jsx", { runtime: "automatic" }],
+        ],
+      },
+    }),
+  ],
+  build: {
+    outDir: "dist",
+    assetsDir: "assets",
+    manifest: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+  },
+  server: {
+    middlewareMode: true,
+  },
 });
