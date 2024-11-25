@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 export default {
   target: "node",
-  entry: "./server/index.js",
+  entry: "./server/index.jsx",
   externals: [nodeExternals()],
   output: {
     path: path.resolve(__dirname, "server-build"),
@@ -24,10 +24,6 @@ export default {
         use: {
           loader: "babel-loader",
         },
-      },
-      {
-        test: /\.css$/,
-        use: ["null-loader"],
       },
     ],
   },

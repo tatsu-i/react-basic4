@@ -9,7 +9,9 @@ const app = express();
 
 app.use(express.static("dist"));
 
+//Express　のルーティング
 app.get("*", (req, res) => {
+  //renderToStringでReactAppをHTMLに変換。まさにこれがSSR。→hydrateRoot
   const appHtml = renderToString(
     <StrictMode>
       <App />
@@ -42,6 +44,7 @@ app.get("*", (req, res) => {
     </html>
   `;
 
+  //クライアントサイドにhtmlを送信
   res.send(html);
 });
 
