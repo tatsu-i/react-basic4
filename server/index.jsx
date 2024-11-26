@@ -18,14 +18,8 @@ app.get("*", (req, res) => {
     </StrictMode>
   );
 
-  const manifest = JSON.parse(
-    fs.readFileSync(
-      path.resolve(__dirname, "../dist/.vite/manifest.json"),
-      "utf-8"
-    )
-  );
-  const jsFile = manifest["index.html"].file;
-  const cssFile = manifest["index.html"].css[0];
+  const jsFile = "assets/main.js"; // Webpackの出力ファイル名に合わせて変更
+  const cssFile = ""; // CSSはJSにバンドルされるため不要
 
   const html = `
     <!DOCTYPE html>
